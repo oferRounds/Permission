@@ -61,7 +61,7 @@ open class PermissionAlert {
     fileprivate var cancelActionTitle: String?
     fileprivate var defaultActionTitle: String?
     
-    var controller: UIAlertController {
+    public var controller: UIAlertController {
         let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: cancelActionTitle, style: .cancel, handler: cancelHandler)
@@ -96,7 +96,7 @@ internal class DisabledAlert: PermissionAlert {
 }
 
 internal class DeniedAlert: PermissionAlert {
-    override var controller: UIAlertController {
+    public override var controller: UIAlertController {
         let controller = super.controller
         
         let action = UIAlertAction(title: defaultActionTitle, style: .default, handler: settingsHandler)
@@ -133,7 +133,7 @@ internal class DeniedAlert: PermissionAlert {
 }
 
 internal class PrePermissionAlert: PermissionAlert {
-    override var controller: UIAlertController {
+    public override var controller: UIAlertController {
         let controller = super.controller
         
         let action = UIAlertAction(title: defaultActionTitle, style: .default, handler: confirmHandler)
